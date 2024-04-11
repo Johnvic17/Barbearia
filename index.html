@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Padrão Bruno Biase - A barbearia mais visitada da Trindade</title>
+</head>
+
+<body id="body">
+  <!--header-->
+  <div class="header" id="header">
+    <button onclick="toggleSidebar()" class="btn_icon_header">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+      </svg>
+    </button>
+    <div class="logo_header">
+      <img src="img/logo.png" alt="logo" class="img_logo_header">
+    </div>
+    <div class="navigation_header" id="navigation_header">
+      <button onclick="toggleSidebar()" class="btn_icon_header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x"
+          viewBox="0 0 16 16">
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+      </button>
+      <a href="https://www.instagram.com/barbeariapadraobrunobiase/">Instagram</a>
+      <a href="https://www.google.com/maps/place/BARBEARIA+PADR%C3%83O+BRUNO+BIASE/@-22.8075385,-43.0174449,15z/data=!4m2!3m1!1s0x0:0xe347e0a2e3a50826?sa=X&ved=2ahUKEwj25_TujcKDAxWpqZUCHczaDBkQ_BJ6BAg3EAA">Localização</a>
+      <a href="#">Contato</a>
+      <!--final do header-->
+    </div>
+  </div>
+  
+  <main tabindex="0" onclick="closeSidebar()" class="content" id="content">
+    <!--titulo-->
+   <h1 class="titulo" id="titulo">Barbearia Bruno Biase</h1>
+   <div class="body2">
+
+    <div class="slider">
+
+      <div class="slides">
+        <!--radio buttons-->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <!--fim radio butons-->
+
+        <!--slide images-->
+        <div class="slide first">
+          <img src="img/img-1.jpeg" alt="imagem1">
+        </div>
+        <div class="slide second">
+          <img src="img/img-2.jpeg" alt="imagem2">
+        </div>
+        <div class="slide third">
+          <img src="img/img-3.jpeg" alt="imagem3">
+        </div>
+        <div class="slide four">
+          <img src="img/img-4.jpeg" alt="imagem4">
+        </div>
+        <!--fim slide images-->
+        
+        <!--Navigation-auto-->
+        <div class="navigation-auto">
+           <div class="auto-btn1"></div>
+           <div class="auto-btn2"></div>
+           <div class="auto-btn3"></div>
+           <div class="auto-btn4"></div>
+        </div>
+      </div>
+         
+      <div class="manual-navigation">
+      <label for="radio1" class="manual-btn"></label>
+      <label for="radio2" class="manual-btn"></label>
+      <label for="radio3" class="manual-btn"></label>
+      <label for="radio4" class="manual-btn"></label>
+      </div>
+      <!--javascript!!-->
+     <script src="script.js"></script>  
+     </div>
+   </div>
+ </main>
+  <footer class="fechamento" id="fechamento">
+     <p>&copy; 2023 Barbearia Biase. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
+<script>
+  var header           = document.getElementById('header');
+  var navigationHeader = document.getElementById('navigation_header');
+  var content          = document.getElementById('content');
+  var showSidebar      = false;
+  var imagem           = document.getElementById ('img-2')
+  var fechamento          = document.getElementById('fechamento');
+
+  function toggleSidebar()
+  {
+      showSidebar = !showSidebar;
+      if(showSidebar)
+      {
+          navigationHeader.style.marginLeft = '-10vw';
+          navigationHeader.style.animationName = 'showSidebar';
+          content.style.filter = 'blur(2px)';
+          fechamento.style.filter = 'blur(2px)';
+      }
+      else
+      {
+          navigationHeader.style.marginLeft = '-100vw';
+          navigationHeader.style.animationName = '';
+          content.style.filter = '';
+          fechamento.style.filter = '';
+      }
+  }
+  function closeSidebar()
+  {
+     if (showSidebar)
+     {
+         toggleSidebar();
+     }
+  }
+  window.addEventListener('resize', function(event) {
+       if(window.innerWidth > 768 && showSidebar)
+       {
+        showSidebar = true; 
+        toggleSidebar();
+       }
+    });
+</script>
+
+<!--DEI UMA PAUSA PARA ESTUDAR MAIS!!!-->
